@@ -1,0 +1,46 @@
+.nav-link{
+  marigin:0;
+}
+
+.buttonCute{
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.img{
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.border-medium{
+  border-width: 5px !important;
+}
+
+.fotoBackground {
+  background-image: url(../images/phones.png);
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+.btn-absolute{
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  border-radius: 0;
+  text-align: center;
+}
+
+.list-playlist:hover{
+  cursor: pointer;
+  background-color: #6600af;
+  color: whitesmoke;
+}

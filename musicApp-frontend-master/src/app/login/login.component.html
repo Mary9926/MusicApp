@@ -1,0 +1,41 @@
+<div class="containerFoto">
+    <div *ngIf="isLoggedIn; else loggedOut">
+      Logged in.
+    </div>
+    ​
+    <ng-template #loggedOut>
+      <div class="welcome">  Welcome to Music App
+        <br>
+        Please log in ;)
+      </div>
+      <div class="row col-sm-6 textpalce addBlock">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+                   required />
+            <div *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required" class="textError">Username is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" #password="ngModel"
+                   required minlength="6" />
+            <div *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required" class="textError">Password is required</div>
+              <div *ngIf="password.errors.minlength" class="textError">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-purple">Login</button>
+            <div *ngIf="f.submitted && isLoginFailed" class="alert-danger p-2 mt-2 textError">
+              Password or login are not correct, please try again
+            </div>
+          </div>
+        </form>
+        <p  class=" textForSignup" > Don't have an account?</p>
+        <a href="signup" class="btn btn-purple">Sign Up</a>
+      </div>
+    </ng-template>
+</div>

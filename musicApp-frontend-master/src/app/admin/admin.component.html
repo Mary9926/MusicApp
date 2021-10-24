@@ -1,0 +1,51 @@
+<div class="foto">
+<div class="textpalce" *ngIf="isLoggedIn; else loggedOut">
+  <div class="form-admin m-0 p-4 d-flex flex-column align-items-center">
+    <h1 class="m-3" style = "color: #e0a800">Add new song</h1>
+    <div class="row-width-400">
+      <label class="admin-label">Song title:</label>
+      <input class="form-group border border-medium border-warning" #title />
+    </div>
+    <div class="row-width-400">
+      <label class="admin-label">Song author:</label>
+      <input class="form-group border border-medium border-warning" #author />
+    </div>
+    <div class="row-width-400">
+      <label class="admin-label">Song coverUrl:</label>
+      <input class="form-group border border-medium border-warning" #coverUrl />
+    </div>
+    <div class="row-width-400">
+      <label class="admin-label">Song audioUrl:</label>
+      <input class="form-group border border-medium border-warning" #audioUrl />
+    </div>
+    <button class="btn btn-warning buttonCute" (click)="add(title.value, author.value, coverUrl.value, audioUrl.value);
+                  title.value=''; author.value=''; coverUrl.value=''; audioUrl.value=''">
+      Add
+    </button>
+  </div>
+  <table class="table m-0">
+    <thead style="background-color: #b7247d; color: whitesmoke;">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Artist</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody style="background-color: whitesmoke">
+    <tr *ngFor="let song of songs">
+      <td>{{song.title}}</td>
+      <td>{{song.author}}</td>
+      <td>
+        <button class="btn btn-warning" (click)="delete(song)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #loggedOut>
+  <div class="d-flex flex-column pt-4 align-items-center">
+    <div class="h2 p-2 text-center text-white">Please, login to admin account to manage music</div>
+    <a class="btn btn-warning" routerLink="../auth/login">Login</a>
+  </div>
+</ng-template>
+</div>
